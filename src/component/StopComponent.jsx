@@ -21,11 +21,11 @@ function StopComponent ({ stop, seq, fullRouteStop }) {
                         <div key={`${idx}-${item.route}`} className={'stop-div'}>
                             {
                                 item.eta
-                                  ? <div className={'stop-time mr-2 inline '}>
+                                  ? <div className={'stop-time mr-2 inline dark:text-white'}>
                                     {mintues < 1 ? '-' : mintues }
                                     <span className={'stop-time-word'}>{t('Minutes')}</span>
                                 </div>
-                                  : <div className="stop-time  ">
+                                  : <div className="stop-time dark:text-white ">
                                     {t('NoBus')}
                                 </div>
                             }

@@ -37,14 +37,14 @@ function App () {
   }
 
   return (
-    <div className={' bg-white'}>
+    <div className={'dark:filter dark:grayscale dark:bg-black dark:text-white bg-white'}>
       <Header>
         <div className="stickyheader">
           <div className='option-container'>
             <div className='defaultbtn-container'>
               {
                 BUS_STOP_LOCATION.map(location=>(
-                  <button className="defaultbtn"
+                  <button key={location.name} className="defaultbtn"
                     onClick={() => { fetchETAContext({ stopname: location.stopName, id: location.id }) }}>
                       {t(location.name)}
                   </button>
@@ -63,7 +63,7 @@ function App () {
 
       {
         etaList &&
-        <PullToRefresh className="" pullingContent={false} onRefresh={handleRefresh}>
+        <PullToRefresh className="dark:bg-black" pullingContent={false} onRefresh={handleRefresh}>
         {
           etaList?.map((itm, idx) => {
             const mintues = TimeHelper.getAbsMinuteDiff(itm?.eta, itm.data_timestamp) ?? '-'

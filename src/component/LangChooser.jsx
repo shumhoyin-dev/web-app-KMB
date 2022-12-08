@@ -8,6 +8,8 @@ function LangChooser () {
 
   const {
     changeLngContext,
+    toggleDarkMode,
+    isDark
   } = global
 
   const changeLang = (lang) => {
@@ -17,6 +19,7 @@ function LangChooser () {
 
   return (
     <div className="langchooser-container">
+        <div className="cursor-pointer" onClick={() => { toggleDarkMode() }}>{ isDark ? 'LIGHT' : 'DARK' }</div>
         <div className="cursor-pointer" onClick={() => { changeLang('en') }}>EN</div>
         <div className="cursor-pointer" onClick={() => { changeLang('tc') }}>TC</div>
         <div className="cursor-pointer" onClick={() => { changeLang('sc') }}>SC</div>

@@ -53,7 +53,7 @@ function RouteSearch () {
 
   return (
     <>
-      <div className="  bg-white h-screen">
+      <div className="dark:filter dark:grayscale dark:bg-black dark:text-white bg-white h-screen">
           <Header>
             <div className="routesearch-sticky">
               <div className="first-row">
@@ -75,12 +75,12 @@ function RouteSearch () {
               </div>
             </div>
           </Header>
-          <section className=''>
+          <section className='dark:bg-black '>
           {
             displayList?.length > 0
               ? displayList?.map((route, idx) => {
                 return (
-                <div key={`${route.route}-${idx}`} className={'route-search-row'}>
+                <div key={`${route.route}-${idx}`} className={'route-search-row dark:text-white'}>
                   <Link to={`/detail?direction=${route.bound}&route=${route.route}&serviceType=${route.service_type}`}>
                     <div className={'p-2 grid grid-cols-6  hover:bg-red-300 '}>
                       <div className="option-grid-1">

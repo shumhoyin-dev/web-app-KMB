@@ -59,7 +59,7 @@ function Detail () {
   }
 
   return (
-        <div className={'h-screen '}>
+        <div className={'h-screen  dark:bg-black dark:text-white '}>
             <Header/>
             <div className="detail-content-container">
                 <div className="map-container">
@@ -80,7 +80,7 @@ function Detail () {
                             }
                         </p>
                     </div>
-                    <div className={'time-container'}>
+                    <div className={'time-container dark:bg-black '}>
                         {
                             fullRouteStop && fullRoute && fullRoute?.map((itm, idx) => {
                               return (

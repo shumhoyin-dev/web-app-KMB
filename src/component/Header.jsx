@@ -8,7 +8,7 @@ function Header ({ children }) {
   const { t } = useTranslation()
   return (
       <>
-        <div className='header'>
+        <div className='header dark:filter dark:grayscale'>
           <img src='https://www.kmb.hk/images/inc/kmb_icon.png'/>
         </div>
         <div>

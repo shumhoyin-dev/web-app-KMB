@@ -7,6 +7,15 @@ const GlobalContext = createContext(null)
 export const GlobalProvider = ({ children }) => {
   const [etaList, setEtaList] = useState(null)
   const [stop, setSelectedStop] = useState(JSON.parse(localStorage.getItem('seletcedStop')) || null)
+  const [isDark, setIsDark] = useState(() => {
+    const dark = localStorage.getItem('dark')
+    if (dark === 'true') {
+      document.documentElement.classList.add('dark')
+      return true
+    } else {
+      return false
+    }
+  })
   const [lng, setLng] = useState(() => localStorage.getItem('lng') || 'tc')
 
   const fetchDetailStopContext = async (info) => {
@@ -37,6 +46,18 @@ export const GlobalProvider = ({ children }) => {
     setEtaList(filteredRouteStopInfo)
   }
 
+  function toggleDarkMode () {
+    const dark = localStorage.getItem('dark')
+    if (dark === 'true') {
+      document.documentElement.classList.remove('dark')
+      localStorage.setItem('dark', false)
+      setIsDark(false)
+    } else {
+      document.documentElement.classList.add('dark')
+      localStorage.setItem('dark', true)
+      setIsDark(true)
+    }
+  }
 
   const changeLngContext = (lng) => {
     localStorage.setItem('lng', lng)
@@ -45,6 +66,7 @@ export const GlobalProvider = ({ children }) => {
 
   const value = useMemo(
     () => ({
+      toggleDarkMode,
       etaList,
       stop,
       fetchETAContext,
@@ -53,8 +75,9 @@ export const GlobalProvider = ({ children }) => {
       lng,
       changeLngContext,
       setEtaList,
+      isDark
     }),
-    [lng, etaList, stop]
+    [lng, etaList, isDark, stop]
   )
   return <GlobalContext.Provider value={value}>{children}</GlobalContext.Provider>
 }

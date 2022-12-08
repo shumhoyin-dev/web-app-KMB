@@ -1,70 +1,185 @@
-:root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 400;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-}
+@layer components {
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+  .card {
+    background-color: theme('colors.blue.500');
   }
-  a:hover {
-    color: #747bff;
+  /* ... */
+  .black-mode{
+    background-color: theme('colors.black');
   }
-  button {
-    background-color: #f9f9f9;
+
+  .dot{
+    transform: translateX(100%);
+    background-color: #48bb78;
   }
 }
+
+
+.header-option{
+  @apply border-2 cursor-pointer block hover:bg-gray-300 py-2
+}
+
+
+.defaultbtn {
+  @apply text-sm px-2 py-1 border-2 rounded
+}
+
+
+.header{
+  @apply text-center py-3 flex justify-center items-center bg-white
+}
+
+.stickyheader{
+  @apply bg-red-500 text-white z-1 sticky top-0 px-5 py-3 space-y-2 shadow-2xl
+}
+
+.option-container {
+  @apply flex justify-between items-center 
+}
+
+.defaultbtn-container{
+  @apply space-y-2 flex flex-col items-start
+}
+
+.langchooser-container{
+  @apply flex items-center space-x-2 text-white
+}
+
+.grid-header{
+  @apply grid grid-cols-6 items-center
+}
+
+.option-row{
+  @apply items-center p-3 border-b-2 px-4
+}
+
+.option-grid{
+  @apply p-2 grid grid-cols-6 hover:bg-gray-300
+}
+
+.option-grid-1{
+  @apply col-span-2 flex items-center 
+}
+
+.option-route{
+  @apply p-2 outline-dashed outline-red-400 block w-20
+}
+
+.option-dest{
+  @apply block font-bold text-base 
+}
+
+.option-grid-3{
+  @apply flex items-center justify-center
+}
+
+.option-min-block{
+  @apply text-xl flex items-center flex-col
+}
+
+.detail-content-container{
+  @apply w-full h-full flex flex-wrap
+}
+
+.map-container{
+  @apply relative bg-white w-full h-1/3 
+}
+
+.list-container{
+  @apply overflow-auto w-full h-2/3 
+}
+
+.time-container{
+  @apply px-5 py-5 space-y-10
+}
+
+.stop-div{
+  @apply  px-3 text-xs space-x-2 border-b-2 py-1 items-center mr-1 flex
+}
+
+.stop-time {
+  @apply text-xl text-blue-600
+}
+.stop-time-word{
+  @apply ml-1 text-sm md:text-base 
+}
+
+.stop_remark{
+  @apply text-base ml-2 text-gray-400
+}
+
+.route-eta-head{
+ @apply  p-3 bg-red-500 sticky top-0 font-semibold text-white
+}
+
+
+.input-area{
+  @apply space-y-2 space-x-0 flex flex-col items-start justify-start flex-wrap 
+}
+
+.routesearch-sticky{
+  @apply justify-between text-white bg-red-500 z-20 sticky top-0 px-5 py-3 space-y-2 shadow-xl
+}
+
+.first-row{
+  @apply flex items-center justify-between
+}
+
+.route-search-row{
+  @apply text-black items-center p-3 border-b-2 px-4
+}
+
+.TopBtn{
+  @apply cursor-pointer dark:bg-gray-400 rounded-full h-14 w-14 z-10 fixed bottom-8 right-8
+}
+
+
+@screen md{
+  .defaultbtn{
+    @apply text-base
+  }
+
+  .defaultbtn-container{
+    @apply space-x-2 space-y-0 flex-row
+  }
+
+  .option-dest{
+    @apply inline ml-2
+  }
+
+  
+  .option-grid-3{
+    @apply  justify-start
+  }
+
+  .option-min-block{
+    @apply  space-x-2 flex-row
+  }
+
+  .map-container{
+    @apply w-6/12 h-full
+  }
+
+  .list-container{
+    @apply w-6/12 h-full
+  }
+  
+  .stop-div{
+    @apply text-xl 
+  }
+
+  .stop-time-word{
+    @apply text-base 
+  }
+
+  .input-area{
+    @apply space-y-0 space-x-3 flex-row items-center 
+  }
+}
+
+

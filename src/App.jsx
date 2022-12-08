@@ -4,10 +4,13 @@ import { createSearchParams, useNavigate } from 'react-router-dom'
 import PullToRefresh from 'react-simple-pull-to-refresh'
 import TimeHelper from './utils/timehelper'
 import { useGlobal } from './context/useGlobal'
+import { useTranslation } from 'react-i18next'
 import Header from './component/Header'
+import LangChooser from './component/LangChooser'
 import { BUS_STOP_LOCATION } from './constant/bustop'
 
 function App () {
+  const { t } = useTranslation()
 
   const navigate = useNavigate()
   const global = useGlobal()
@@ -17,6 +20,7 @@ function App () {
     stop,
     fetchETAContext,
     refreshStatus,
+    lng
   } = global
 
   const handleRefresh = async () => refreshStatus()
@@ -42,16 +46,17 @@ function App () {
                 BUS_STOP_LOCATION.map(location=>(
                   <button className="defaultbtn"
                     onClick={() => { fetchETAContext({ stopname: location.stopName, id: location.id }) }}>
-                      {location.stopName}
+                      {t(location.name)}
                   </button>
                 ))
               }
             </div>
+            <LangChooser/>
           </div>
           <div className='grid-header'>
-            <div className="col-span-2 p-2">Route</div>
-            <div className="col-span-3">Dest</div>
-            <div className="">Time</div>
+            <div className="col-span-2 p-2">{t('Route')}</div>
+            <div className="col-span-3">{t('Dest')}</div>
+            <div className="">{t('Time')}</div>
           </div>
         </div>
       </Header>
@@ -70,19 +75,19 @@ function App () {
                   </div>
                   <div className="col-span-3">
                       <div className="text-sm md:text-base">
-                          To
+                          {t('To')}
                           <span className="option-dest ">
-                              {itm[`dest_tc`]}
+                              {itm[`dest_${lng}`]}
                           </span>
                           <p className="text-sm md:text-base">
-                              {stop && stop[`name_tc`]}
+                              {stop && stop[`name_${lng}`]}
                           </p>
                       </div>
                   </div>
                   <div className="option-grid-3">
                       <div className={'option-min-block'}>
                           <p>{mintues < 1 ? '-' : mintues }</p>
-                          <span className={'text-sm md:text-lg '}>Minutes</span>
+                          <span className={'text-sm md:text-lg '}>{t('Minutes')}</span>
                       </div>
                   </div>
                 </div>

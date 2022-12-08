@@ -7,6 +7,7 @@ const GlobalContext = createContext(null)
 export const GlobalProvider = ({ children }) => {
   const [etaList, setEtaList] = useState(null)
   const [stop, setSelectedStop] = useState(JSON.parse(localStorage.getItem('seletcedStop')) || null)
+  const [lng, setLng] = useState(() => localStorage.getItem('lng') || 'tc')
 
   const fetchDetailStopContext = async (info) => {
     try {
@@ -36,17 +37,24 @@ export const GlobalProvider = ({ children }) => {
     setEtaList(filteredRouteStopInfo)
   }
 
+
+  const changeLngContext = (lng) => {
+    localStorage.setItem('lng', lng)
+    setLng(lng)
+  }
+
   const value = useMemo(
     () => ({
-
       etaList,
       stop,
       fetchETAContext,
       fetchDetailStopContext,
       refreshStatus,
+      lng,
+      changeLngContext,
       setEtaList,
     }),
-    [etaList, stop]
+    [lng, etaList, stop]
   )
   return <GlobalContext.Provider value={value}>{children}</GlobalContext.Provider>
 }

@@ -6,6 +6,7 @@ import PropTypes from 'prop-types'
 
 function RouteMap ({ fullRouteStop }) {
   const global = useGlobal()
+  const { lng } = global
 
   const center = getCenter(fullRouteStop.map((itm) => {
     return ({ latitude: itm.lat, longitude: itm.long })
@@ -20,7 +21,7 @@ function RouteMap ({ fullRouteStop }) {
          fullRouteStop && fullRouteStop?.map((itm, idx) => {
            return (
                   <Marker key={`${idx}-${itm.stop}`} position={[itm?.lat, itm?.long]}>
-                      <Popup>{itm[`name_tc`]}</Popup>
+                      <Popup>{itm[`name_${lng}`]}</Popup>
                   </Marker>
            )
          })

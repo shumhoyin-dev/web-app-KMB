@@ -1,0 +1,13 @@
+{
+    "To":"To",
+    "Minutes":"Mins",
+    "Route":"Route",
+    "Dest":"Destination",
+    "Time":"Time",
+    "NoBus":"No Scheduled Bus Available",
+    "DefaultLoc1":"TSUEN KING CIRCUIT FLYOVER",
+    "DefaultLoc2":"CHAI WAN KOK STREET TSUEN WAN",
+    "Main":"Main",
+    "RouteSearch":"Route Search",
+    "EmptySearchMessage": "Please Select Bus Route"
+}

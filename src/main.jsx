@@ -9,6 +9,7 @@ import {
 } from 'react-router-dom'
 import { GlobalProvider } from './context/useGlobal'
 import Detail from './views/Detail'
+import './i18n/i18n'
 import RouteSearch from './views/RouteSearch'
 
 ReactDOM.createRoot(document.getElementById('root')).render(

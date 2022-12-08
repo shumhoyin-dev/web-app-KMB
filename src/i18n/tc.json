@@ -1,0 +1,13 @@
+{
+    "To":"往",
+    "Minutes":"分鐘",
+    "Route":"路線",
+    "Dest":"總站",
+    "Time":"時間",
+    "NoBus":"暫時沒有適合班次",
+    "DefaultLoc1":"荃景圍天橋",
+    "DefaultLoc2":"荃灣柴灣角街",
+    "Main":"主頁",
+    "RouteSearch":"搜尋路線",
+    "EmptySearchMessage": "請選擇巴士路線"
+}

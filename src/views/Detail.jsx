@@ -2,13 +2,16 @@
 import React, { useEffect, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { useGlobal } from '../context/useGlobal'
+import { useTranslation } from 'react-i18next'
 import Header from '../component/Header'
 import StopComponent from '../component/StopComponent'
 import RouteMap from '../component/RouteMap'
 import API from '../api'
 
 function Detail () {
+  const { t } = useTranslation()
   const global = useGlobal()
+  const { lng } = global
 
   const [routeInfo, setRouteInfo] = useState(null)
   const [fullRoute, setFullRoute] = useState(null)
@@ -56,7 +59,7 @@ function Detail () {
   }
 
   return (
-        <div className={'h-screen'}>
+        <div className={'h-screen '}>
             <Header/>
             <div className="detail-content-container">
                 <div className="map-container">
@@ -71,8 +74,8 @@ function Detail () {
                                 routeInfo &&
                                 <>
                                     <span className="mr-1">{routeInfo.route}</span>
-                                    To
-                                    <span>{routeInfo[`dest_tc`]}</span>
+                                    {t('To')}
+                                    <span>{routeInfo[`dest_${lng}`]}</span>
                                 </>
                             }
                         </p>

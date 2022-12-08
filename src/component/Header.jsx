@@ -1,9 +1,11 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import PropTypes from 'prop-types'
 
 function Header ({ children }) {
   const navigate = useNavigate()
+  const { t } = useTranslation()
   return (
       <>
         <div className='header'>
@@ -12,10 +14,10 @@ function Header ({ children }) {
         <div>
             <ol className='grid grid-cols-2 text-center'>
               <li onClick={() => { navigate('/') }} className='header-option'>
-                Main
+                {t('Main')}
               </li>
               <li onClick={() => { navigate('/route') }} className='header-option'>
-                Route Search
+              {t('RouteSearch')}
               </li>
             </ol>
           </div>

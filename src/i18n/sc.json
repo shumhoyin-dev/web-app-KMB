@@ -1,0 +1,13 @@
+{
+    "To":"往",
+    "Minutes":"分钟",
+    "Route":"路线",
+    "Dest":"总站",
+    "Time":"时间",
+    "NoBus":"暂时没有适合班次",
+    "DefaultLoc1":"荃景围天桥",
+    "DefaultLoc2":"荃湾柴湾角街",
+    "Main":"主页",
+    "RouteSearch":"搜寻路线",
+    "EmptySearchMessage": "请选择巴士路线"
+}

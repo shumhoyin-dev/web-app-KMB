@@ -21,7 +21,7 @@ function StopComponent ({ stop, seq, fullRouteStop }) {
                         <div key={`${idx}-${item.route}`} className={'stop-div'}>
                             {
                                 item.eta
-                                  ? <div className={'stop-time mr-2 inline dark:text-white'}>
+                                  ? <div className={'stop-time mr-2 inline '}>
                                     {mintues < 1 ? '-' : mintues }
                                     <span className={'stop-time-word'}>{t('Minutes')}</span>
                                 </div>
@@ -46,7 +46,7 @@ function StopComponent ({ stop, seq, fullRouteStop }) {
 
 StopComponent.propTypes = {
   stop: PropTypes.object,
-  seq: PropTypes.number,
+  seq: PropTypes.string,
   fullRouteStop: PropTypes.object
 }
 

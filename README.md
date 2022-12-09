@@ -13,7 +13,7 @@ git clone https://github.com/shumhoyin-dev/web-app-KMB.git
 cd to the target folder and use the package manager to install package
 
 ```js
-cd webapp-busETA
+cd web-app-KMB
 npm install
 ```
 
